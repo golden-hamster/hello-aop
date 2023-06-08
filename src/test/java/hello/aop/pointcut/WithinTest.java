@@ -49,7 +49,7 @@ public class WithinTest {
     }
 
     @Test
-    @DisplayName("execution은 타입 기반, 인터페이스를 선정 가능.")
+    @DisplayName("execution 은 타입 기반, 인터페이스를 선정 가능.")
     void executionSuperTypeTrue() {
         pointcut.setExpression("execution(* hello.aop.member.MemberService.* (..))");
         assertThat(pointcut.matches(helloMethod, MemberServiceImpl.class)).isTrue();
