@@ -10,9 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 
+/**
+ * application.properties
+ * spring.aop.proxy-target-class=true CGLIB
+ * spring.aop.proxy-target-class=false JDK 동적 프록시
+ */
 @Slf4j
 @Import(ThisTargetTest.ThisTargetAspect.class)
-@SpringBootTest
+@SpringBootTest(properties = "spring.aop.proxy-target-class=false") //JDK 동적프록시
+//@SpringBootTest(properties = "spring.aop.proxy-target-class=true") //CGLIB
 public class ThisTargetTest {
 
     @Autowired
